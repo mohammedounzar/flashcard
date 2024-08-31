@@ -136,22 +136,11 @@
             }
 
             newCard = () => {
-                for (let i = 0; i < this.props.cards.length - 1; i += 1) {
-                    if (this.state.card === this.props.cards[i]) {
-                        this.setState({
-                            card: this.props.cards[i + 1],
-                            in_front: true
-                        });
-                        break;
-                    }
-                }
-
-                if (this.state.card === this.props.cards[this.props.cards.length - 1]) {
-                    this.setState({
-                        card: this.props.cards[0],
-                        in_front: true
-                    });
-                }
+                const randomIndex = Math.floor(Math.random() * this.props.cards.length);
+                this.setState({
+                    card: this.props.cards[randomIndex],
+                    in_front: true
+                });
             }
 
         }
